@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,7 +18,28 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="content/css/main.css" />
   </head>
-  <body>
+  <body class="h-100">
+    <header class="h-50">
+      <div class="container h-100">
+        <div class="row justify-content-between align-items-center h-100">
+          <button class="btn btn-primary align-self-start">Again</button>
+          <h1 class="display-4 align-self-center">Guess My Number!</h1>
+          <p class="lead align-self-start">(Between 1 and 20)</p>
+        </div>
+        <p class="number text-center px-5 py-2">?</p>
+      </div>
+    </header>
+    <main class="d-flex justify-content-around">
+      <div class="main__right d-flex flex-column">
+        <input type="Number" />
+        <button class="btn btn-primary">Check!</button>
+      </div>
+      <div class="main__left">
+        <p class="lead guessing">Start guessing...</p>
+        <p class="lead score">💯 Score: 20</p>
+        <p class="lead highscore">🥇 Highscore: 0</p>
+      </div>
+    </main>
     <!-- Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
