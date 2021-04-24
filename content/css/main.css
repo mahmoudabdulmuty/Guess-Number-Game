@@ -127,6 +127,28 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/* font-face  */
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../assets/fonts/Roboto-Regular/Roboto-Regular.eot'); /* IE9+ Compat Modes */
+  src: url('../assets/fonts/Roboto-Regular/Roboto-Regular.eot')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('../assets/fonts/Roboto-Regular/Roboto-Regular.woff2')
+      format('woff2'),
+    /* Super modern browsers */
+      url('../assets/fonts/Roboto-Regular/Roboto-Regular.woff') format('woff'),
+    /* Modern browsers */
+      url('../assets/fonts/Roboto-Regular/Roboto-Regular.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('../assets/fonts/Roboto-Regular/Roboto-Regular.svg') format('svg'); /* Legacy iOS */
+}
+/* font-face */
+body {
+  font-family: 'Roboto-Regular';
+}
+
+/*  */
 /* header */
 header {
   border-bottom: 5px solid black;
@@ -139,3 +161,4 @@ header {
   font-size: 50px;
   transform: translateY(-50%);
 }
+/* header */
