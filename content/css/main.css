@@ -127,7 +127,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* font-face  */
+/* font-face*/
 @font-face {
   font-family: 'Roboto';
   src: url('../assets/fonts/Roboto-Regular/Roboto-Regular.eot'); /* IE9+ Compat Modes */
@@ -143,15 +143,14 @@ table {
     /* Safari, Android, iOS */
       url('../assets/fonts/Roboto-Regular/Roboto-Regular.svg') format('svg'); /* Legacy iOS */
 }
-/* font-face */
+/* body start */
 body {
   color: #f1f1f1;
   background-color: #000;
   font-family: 'Roboto';
 }
-
-/*  */
-/* header */
+/* body end  */
+/* header start */
 header {
   border-bottom: 5px solid #f1f1f1;
 }
@@ -164,4 +163,14 @@ header {
   font-size: 80px;
   transform: translateY(-50%);
 }
-/* header */
+/* header end */
+/* main start */
+.guess {
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+  border-radius: 4px;
+}
+.guess:focus {
+  outline: transparent;
+}
+/* main end */

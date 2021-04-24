@@ -2,55 +2,64 @@ let number = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
 
-const secretNumber = document.querySelector('.secret-number');
 const body = document.querySelector('body');
 const guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
-const message = document.querySelector('.message');
-const scoreMessage = document.querySelector('.score');
 const highscoreMessage = document.querySelector('.highscore');
 const again = document.querySelector('.again');
 
+const secretNumber = value => {
+  document.querySelector('.secret-number').textContent = value;
+};
+
+const displayMessage = message => {
+  document.querySelector('.message').textContent = message;
+};
+
+const scoreMessage = message => {
+  document.querySelector('.score').textContent = message;
+};
+
+const reset = () => {
+  guess.value = 0;
+  secretNumber('?');
+  score = 20;
+  displayMessage('Start guessing...');
+  body.style.backgroundColor = '#000';
+  scoreMessage(score);
+  number = Math.floor(Math.random() * 20) + 1;
+};
+
 check.addEventListener('click', () => {
   let guessValue = Number(guess.value);
-
+  // when user input wrong values
   if (!guessValue || guessValue < 0) {
-    message.textContent = '⛔ No number';
-  } else if (guessValue === number) {
-    secretNumber.textContent = number;
-    message.textContent = 'Correct Number 🏆💃💃';
+    displayMessage('⛔ No number');
+  }
+  // when user wins
+  else if (guessValue === number) {
+    secretNumber(number);
+    displayMessage('Correct Number 🏆💃💃');
     body.style.backgroundColor = '#03fc6f';
+    // implementing highscore
     if (score > highscore) {
       highscore = score;
       highscoreMessage.textContent = score;
     }
-  } else if (guessValue > number) {
+  }
+  // if guessValue is diffrent from number
+  else if (guessValue !== number) {
     if (score > 1) {
       score--;
-      scoreMessage.textContent = score;
-      message.textContent = '↗ too high!';
+      scoreMessage(score);
+      displayMessage(guessValue > number ? '↗ too high!' : '↘ too low!');
     } else {
-      message.textContent = '😥 Game over';
-      scoreMessage.textContent = 0;
-    }
-  } else if (guessValue < number) {
-    if (score > 1) {
-      score--;
-      scoreMessage.textContent = score;
-      message.textContent = '↘ too low!';
-    } else {
-      message.textContent = '😥 Game over';
-      scoreMessage.textContent = 0;
+      displayMessage('😥 Game over');
+      scoreMessage(0);
     }
   }
 });
-
+// again reset button
 again.addEventListener('click', () => {
-  guess.value = 0;
-  secretNumber.textContent = '?';
-  score = 20;
-  message.textContent = 'Start guessing...';
-  body.style.backgroundColor = '#000';
-  scoreMessage.textContent = score;
-  number = Math.floor(Math.random() * 20) + 1;
+  reset();
 });
