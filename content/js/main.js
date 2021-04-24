@@ -5,7 +5,6 @@ let highscore = 0;
 const body = document.querySelector('body');
 const guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
-const highscoreMessage = document.querySelector('.highscore');
 const again = document.querySelector('.again');
 
 const secretNumber = value => {
@@ -19,6 +18,11 @@ const displayMessage = message => {
 const scoreMessage = message => {
   document.querySelector('.score').textContent = message;
 };
+
+const highscoreMessage = () =>{
+  highscore = score;
+  document.querySelector('.highscore').textContent = score;
+}
 
 const reset = () => {
   guess.value = 0;
@@ -43,8 +47,7 @@ check.addEventListener('click', () => {
     body.style.backgroundColor = '#03fc6f';
     // implementing highscore
     if (score > highscore) {
-      highscore = score;
-      highscoreMessage.textContent = score;
+      highscoreMessage();
     }
   }
   // if guessValue is diffrent from number
